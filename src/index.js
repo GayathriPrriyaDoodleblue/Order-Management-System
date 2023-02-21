@@ -7,9 +7,12 @@ const fs = require('fs');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const xlsx = require('xlsx');
-const routes = require('./router')
+const routes = require('./router');
+const cookieParser=require('cookie-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(cookieParser());
+
 app.use(fileUpload());
 routes.apiRoutes(app);
 
